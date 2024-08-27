@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4387641356731167447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9099087534670824324}
+  - component: {fileID: 4612081923216747087}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9099087534670824324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387641356731167447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1054933, y: -0.3931288, z: 15.321201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4612081923216747087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387641356731167447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80e96deed0e3e049ad1a36d0e24ceaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPauseprefab: {fileID: 1543401305216365002, guid: 3abff12e2b55a5c4d868a4e34ddbcf3e,
+    type: 3}
+  uiInteractPrefab: {fileID: 5196036271492143506, guid: aa72d6b58a409fd4fbac60c7e09e7119,
+    type: 3}
+  uiObjectivePrefab: {fileID: 2450598297784487693, guid: ce30ff520de58384fbd28ee1028d4771,
+    type: 3}
+  uiShowMessagePrefab: {fileID: 2663157741078087348, guid: 697f1133d4a505e429ec74627f0a8b38,
+    type: 3}
+  uiFirstHintPrefab: {fileID: 9140639896497234221, guid: c3b91cde33ae1634992a1db891e6e005,
+    type: 3}
+  uiPause: {fileID: 0}
+  uiInteract: {fileID: 0}
+  uiObjective: {fileID: 0}
+  uiShowMessage: {fileID: 0}
+  uiFirstHint: {fileID: 0}
+  canvas: {fileID: 0}
+  currentUI: 1
