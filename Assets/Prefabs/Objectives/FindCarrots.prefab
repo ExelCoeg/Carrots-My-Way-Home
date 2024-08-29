@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e1574e259dcac48ab64f7f5bfbdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  complete: 0
   objectiveType: 0
   mainTextString: Collect Carrots (0/5)
   description: Find carrots nearby!
-  complete: 0
-  currentCarrots: 4
+  currentCarrots: 0
 --- !u!1001 &1563378483808673452
 PrefabInstance:
   m_ObjectHideFlags: 0

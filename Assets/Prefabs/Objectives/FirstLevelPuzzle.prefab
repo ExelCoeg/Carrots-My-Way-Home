@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8880463802586058450}
   - component: {fileID: 1059536258117427063}
+  - component: {fileID: 6794349276468129708}
   m_Layer: 0
   m_Name: Basket1
   m_TagString: Untagged
@@ -146,6 +147,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6794349276468129708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685637284350456236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb461e372b33f2b4a871cfafd17ed7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is2DObject: 1
+  questionSprite: {fileID: 21300000, guid: 618088b6841c0034cae48555a9ebfaa7, type: 3}
+--- !u!1 &827481899207637854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87770294898623194}
+  m_Layer: 0
+  m_Name: StartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &87770294898623194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827481899207637854}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.54, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3299861991496123267}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104780411261285154
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +300,37 @@ MonoBehaviour:
   objectiveType: 4
   mainTextString: Complete the third puzzle.
   description: asdassdasd
+--- !u!1 &1485752895924543845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3317924682619134114}
+  m_Layer: 0
+  m_Name: EndPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3317924682619134114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485752895924543845}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.54, y: 6.4, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3299861991496123267}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2851286751304627729
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4197402895049071016}
   - component: {fileID: 1391938342911114825}
+  - component: {fileID: 4532546448693583200}
   m_Layer: 0
   m_Name: Basket3
   m_TagString: Untagged
@@ -338,6 +416,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4532546448693583200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851286751304627729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb461e372b33f2b4a871cfafd17ed7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is2DObject: 1
+  questionSprite: {fileID: 21300000, guid: 45ad2508c977e5047bfd1845ac9dc73f, type: 3}
 --- !u!1 &5332329304383338910
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,8 +486,10 @@ MonoBehaviour:
     type: 3}
   uiCodePanelPrefab: {fileID: 8921862107648420676, guid: 9b191b24502461c498594c7c3e514041,
     type: 3}
+  uiQuestionsPrefab: {fileID: 0}
   uiFirstHint: {fileID: 0}
   uiCodePanel: {fileID: 0}
+  uiQuestions: {fileID: 0}
   puzzles:
   - {fileID: 6241559863325518688}
   - {fileID: 6104273948445165441}
@@ -435,6 +529,9 @@ Transform:
   - {fileID: 5172251142425940011}
   - {fileID: 9033095376970102274}
   - {fileID: 5962486397493374721}
+  - {fileID: 87770294898623194}
+  - {fileID: 3317924682619134114}
+  - {fileID: 8313664784694847683}
   m_Father: {fileID: 7610937222553138435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6104273948445165441
@@ -453,6 +550,7 @@ MonoBehaviour:
   objectiveType: 3
   mainTextString: Complete the second puzzle!
   description: asdsadasdsa
+  reward: {fileID: 0}
   carrots:
   - {fileID: 277561793318938541, guid: f7871299aec79af4687961b5dd2b3422, type: 3}
   - {fileID: 1039290840538820718, guid: 61a8bae46d64da642abfa9a689ce6236, type: 3}
@@ -463,6 +561,8 @@ MonoBehaviour:
   - {fileID: 5893210594436908029}
   - {fileID: 201100049668255353}
   - {fileID: 1588190894359932643}
+  startRewardPosition: {fileID: 87770294898623194}
+  endRewardPosition: {fileID: 3317924682619134114}
 --- !u!1 &7305133544522605537
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702804974586195150}
   - component: {fileID: 8464648098842742204}
+  - component: {fileID: 5600278572683793732}
   m_Layer: 0
   m_Name: Basket2
   m_TagString: Untagged
@@ -547,6 +648,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5600278572683793732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305133544522605537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb461e372b33f2b4a871cfafd17ed7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is2DObject: 1
+  questionSprite: {fileID: 21300000, guid: 39caa574935764b428c51af893770bc4, type: 3}
 --- !u!1 &7333891544706528691
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1257656472218478516}
   - component: {fileID: 2297618395112332872}
+  - component: {fileID: 477300427946566935}
   m_Layer: 0
   m_Name: Basket4
   m_TagString: Untagged
@@ -803,6 +919,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &477300427946566935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453478142554360654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb461e372b33f2b4a871cfafd17ed7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is2DObject: 1
+  questionSprite: {fileID: 21300000, guid: ccf5f92a4a2bf094e99195f4b4690007, type: 3}
 --- !u!1001 &604695778860234777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1014,6 +1144,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7262686970305556842, guid: 679edeb7b31c9cf448cc17779d17d85f,
     type: 3}
   m_PrefabInstance: {fileID: 1843730586761234280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3458192795443111341
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3299861991496123267}
+    m_Modifications:
+    - target: {fileID: 3401212329210156722, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_Name
+      value: RewardLeaf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a796696d1185f62478398f43800d104f, type: 3}
+--- !u!4 &8313664784694847683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6673747596606606702, guid: a796696d1185f62478398f43800d104f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3458192795443111341}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4995460823331971461
 PrefabInstance:

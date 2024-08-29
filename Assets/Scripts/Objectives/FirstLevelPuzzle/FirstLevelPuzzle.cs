@@ -10,8 +10,11 @@ public class FirstLevelPuzzle : Objective
     [Header("UI Prefabs")]
     public UIFirstHint uiFirstHintPrefab;
     public UICodePanel uiCodePanelPrefab;
+    public UIQuestions uiQuestionsPrefab;
+
     public UIFirstHint uiFirstHint;
     public UICodePanel uiCodePanel;
+    public UIQuestions uiQuestions;
 
     [Header("Puzzles")]
     public List<Objective> puzzles;
@@ -19,6 +22,8 @@ public class FirstLevelPuzzle : Objective
     private void Start() {
         uiFirstHint = Instantiate(uiFirstHintPrefab,UIManager.instance.canvas);
         uiCodePanel = Instantiate(uiCodePanelPrefab,UIManager.instance.canvas);
+        uiQuestions = Instantiate(uiQuestionsPrefab,UIManager.instance.canvas);
+        uiQuestions.Hide();
         uiFirstHint.Hide();
         uiCodePanel.Hide();
 }

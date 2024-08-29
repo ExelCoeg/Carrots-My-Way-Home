@@ -7,7 +7,8 @@ public enum UI{
     INTERACT,
     CODEPANEL,
     FIRSTHINT,
-    INVENTORY
+    INVENTORY,
+    QUESTIONS
 }
 public class UIManager : SingletonMonoBehaviour<UIManager>
 {
@@ -80,6 +81,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             case UI.FIRSTHINT:
                 UIFirstHint.instance.Show();
                 break;
+            case UI.QUESTIONS:
+                UIQuestions.instance.Show();
+                break;
 
         }
 
@@ -102,8 +106,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 UICodePanel.Instance.Hide();
                 break;
             case UI.FIRSTHINT:
-            UIFirstHint.instance.Hide();
+                UIFirstHint.instance.Hide();
             break;
+            case UI.QUESTIONS:
+                UIQuestions.instance.Hide();
+                break;
+
+
         }
         currentUI = UI.GAMEPLAY;
     }

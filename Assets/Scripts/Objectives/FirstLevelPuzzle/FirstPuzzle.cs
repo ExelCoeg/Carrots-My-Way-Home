@@ -29,7 +29,7 @@ public class FirstPuzzle : Objective
 
     public void SpawnReward(){
         GameObject rewardColor = Instantiate(reward,startRewardPosition.position,Quaternion.identity,transform);
-        rewardColor.GetComponent<RewardColor>().Animate(endRewardPosition);
+        rewardColor.GetComponent<Reward>().Animate(endRewardPosition);
         enabled = false; 
     }
 
