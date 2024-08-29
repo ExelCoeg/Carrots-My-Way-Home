@@ -15,7 +15,7 @@ public class ItemSlot: MonoBehaviour{
         }
     }
     public void Remove(){
-        UIInventory.instance.items.Remove(gameObject);
+        UIInventory.instance.itemSlots.Remove(gameObject);
         Destroy(gameObject);
     }
     public void EnableShader(){

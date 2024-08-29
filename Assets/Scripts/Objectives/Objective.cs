@@ -1,10 +1,12 @@
 using UnityEngine;
 using System;
 public abstract class Objective : MonoBehaviour {
+    public bool complete;
+    [Header("Objective Type")]
     public ObjectiveType objectiveType;
+    [Header("Objective Texts")]
     public string mainTextString;
     public string description;
-    public bool complete;
     public event Action onComplete;
    
     public abstract void CheckComplete();
@@ -21,10 +23,10 @@ public abstract class Objective : MonoBehaviour {
         ObjectiveManager.instance.NextObjective();
         Destroy(gameObject);
     }
-    public void OnEnable(){
+    public virtual void OnEnable(){
         onComplete += Complete;
     }
-    public void OnDisable(){
+    public virtual void OnDisable(){
         onComplete -= Complete;
     }
 }

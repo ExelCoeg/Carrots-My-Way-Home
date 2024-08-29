@@ -4,15 +4,13 @@ using UnityEngine;
 public class PaperHint : InteractableObject
 {
     UIFirstHint uiFirstHint;
-    public string hint;
    
-    protected override void Update() {
-        base.Update();
+    public void Update() {
+        
         uiFirstHint = GetComponentInParent<FirstLevelPuzzle>().uiFirstHint;
         if(uiFirstHint.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Escape)){
-            uiFirstHint.Hide();
+            UIManager.instance.HideUI(UI.FIRSTHINT);
         }
-        uiFirstHint.GetComponentInChildren<TextMeshProUGUI>().text = hint;
     }
     public override void Interacted()
     {

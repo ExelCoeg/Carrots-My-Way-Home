@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7559708221390898430}
   - component: {fileID: 1363036501063134599}
   - component: {fileID: 9141367496894463839}
-  - component: {fileID: 4913012898248523693}
+  - component: {fileID: 3369720281284565744}
   - component: {fileID: 1064382627635163956}
   m_Layer: 7
   m_Name: GoldenCarrot
@@ -86,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4913012898248523693
-MeshCollider:
+--- !u!65 &3369720281284565744
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,13 +101,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4970989848755135003, guid: 25ba7c5513fe19f48a4b13ba87e787ec, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.019101975, y: 0.056508765, z: 0.018128507}
+  m_Center: {x: 0.00021931171, y: -0.0076723713, z: 0.00030513763}
 --- !u!114 &1064382627635163956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec4a03f1ecc5d940985a2987a1945bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is2DObject: 0
+  detectRadius: 2

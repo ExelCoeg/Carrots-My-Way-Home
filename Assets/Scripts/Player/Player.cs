@@ -16,12 +16,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float interactRadius;
     [SerializeField] private float groundRadius;
     public Transform groundChecker;
-    public Transform interactChecker;
-    public LayerMask interactLayer;
+    // public Transform interactChecker;
+    // public LayerMask interactLayer;
     public LayerMask groundLayer;
     public InteractableObject currentInteractableObject;
-    public Collider[] interactables;
-    public Collider2D[] interactables2D;
+    // public Collider[] interactables;
+    // public Collider2D[] interactables2D;
 
     [Header("-------ANIMATIONS-------")]
     public bool isWalking;
@@ -54,6 +54,20 @@ public class Player : MonoBehaviour
             // Debug.Log("isGrounded: " + isGrounded());
             // print("isWalking: " + isWalking);  
         }
+        PlayerMove();
+        if(currentInteractableObject != null){
+            UIInteract.instance.Show();
+            if(Input.GetKeyDown(KeyCode.F)){
+                Interact(currentInteractableObject);
+            }
+        }
+        else{
+            UIInteract.instance.Hide();
+        }
+        anim.SetBool(isWalkingKey, isWalking);
+
+    }
+    public void PlayerMove(){
         float x = Input.GetAxis("Horizontal");
         float z = !GameManager.instance.is2D ? Input.GetAxis("Vertical") : 0;
         move = transform.right * x + transform.forward * z;
@@ -63,37 +77,13 @@ public class Player : MonoBehaviour
             isWalking = x != 0;
             if(x<0){
                 transform.localScale = new Vector3(5,5,5);
-                interactChecker.localScale = new Vector3(1,1,1);
             }
             else if(x>0){
                 transform.localScale = new Vector3(-5,5,5);
-                interactChecker.localScale = new Vector3(-1,1,1);
-            }
-
-            
-            Collider2D obj = Physics2D.OverlapCircle(interactChecker.position, interactRadius, interactLayer); 
-            if(obj != null){
-                currentInteractableObject = obj.GetComponent<InteractableObject>();
-                currentInteractableObject.enabled = true;
-                UIInteract.instance.Show();
-                if(Input.GetKeyDown(KeyCode.F) && obj.TryGetComponent(out InteractableObject interactable)){
-                    Interact(interactable);
-                }
-            }
-            else{
-                UIInteract.instance.Hide();
-                currentInteractableObject = null;
             }
             rb2D.MovePosition(transform.position  + move * Time.deltaTime * speed);
             
         }
-
-
-
-
-
-
-
 
         //------------------------------------3D------------------------------------
         else{
@@ -106,28 +96,8 @@ public class Player : MonoBehaviour
 
             isWalking = x != 0 || z != 0;
             isJumping = !isGrounded();
-            
-           
-            interactables = Physics.OverlapSphere(interactChecker.position, interactRadius, interactLayer);
-            if(interactables.Length > 0){
-                if(interactables[0].TryGetComponent(out InteractableObject obj)){
-                    currentInteractableObject = obj;
-                    currentInteractableObject.enabled = true;
-                }
-            }
-            else{
-                currentInteractableObject = null;
-            }
-            
-           if(currentInteractableObject != null){
-                UIInteract.instance.Show();
-                if(Input.GetKeyDown(KeyCode.F)){
-                    Interact(currentInteractableObject);
-                }
-            }
-            else{
-                UIInteract.instance.Hide();
-            }
+        
+        
             if(Input.GetKeyDown(KeyCode.Space) && isGrounded() && !isJumping){
                 jumpChargeTimer = 0.25f;
                 anim.SetTrigger(isJumpingKey);
@@ -136,8 +106,6 @@ public class Player : MonoBehaviour
             rb.MovePosition(transform.position  + move * Time.deltaTime * speed);
             
         }
-        anim.SetBool(isWalkingKey, isWalking);
-
     }
     public void PlayerJump(){
         if(GameManager.instance.is2D){
@@ -149,7 +117,7 @@ public class Player : MonoBehaviour
     }
     public void Interact(InteractableObject interactable){
         interactable.Interacted();
-        UIInteract.instance.Hide();
+        print("Interacted with: " + interactable.gameObject.name);
     }
     
     public bool isGrounded(){
@@ -163,30 +131,28 @@ public class Player : MonoBehaviour
     }
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(groundChecker.position, groundRadius);
-        Gizmos.DrawWireSphere(interactChecker.position, interactRadius);
         Gizmos.color = Color.red;
     }
 
     //--------------------------2D FUNCTIONS--------------------
     public void CycleInventorySlot(){
-        if(UIInventory.instance.items.Count > 0){
+        if(UIInventory.instance.itemSlots.Count > 0){
             float scroll = Input.GetAxis("Mouse ScrollWheel");
+            UIInventory.instance.itemSlots[currentSlot].GetComponent<ItemSlot>().EnableShader();
             if(scroll != 0){
-                UIInventory.instance.items[currentSlot].GetComponent<ItemSlot>().DisableShader();
+                UIInventory.instance.itemSlots[currentSlot].GetComponent<ItemSlot>().DisableShader();
                 if(scroll > 0){
                     currentSlot++;
-                    if(currentSlot >= UIInventory.instance.items.Count){
+                    if(currentSlot >= UIInventory.instance.itemSlots.Count){
                         currentSlot = 0;
                     }
                 }
                 else if(scroll < 0){
-                    UIInventory.instance.items[currentSlot].GetComponent<ItemSlot>().DisableShader();
                     currentSlot--;
                     if(currentSlot < 0){
-                        currentSlot = UIInventory.instance.items.Count - 1;
+                        currentSlot = UIInventory.instance.itemSlots.Count - 1;
                     }
                 }
-                UIInventory.instance.items[currentSlot].GetComponent<ItemSlot>().EnableShader();
             }
         }
     }

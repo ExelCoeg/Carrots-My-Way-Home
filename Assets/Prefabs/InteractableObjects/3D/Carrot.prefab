@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5587806308106614305}
   - component: {fileID: 2813115983771927358}
   - component: {fileID: 4479872902621224433}
-  - component: {fileID: 4350828792100964975}
+  - component: {fileID: 6091961030788375730}
   - component: {fileID: 8026762736337272225}
   m_Layer: 7
   m_Name: Carrot
@@ -86,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4350828792100964975
-CapsuleCollider:
+--- !u!65 &6091961030788375730
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,14 +101,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.006931185
-  m_Height: 0.056508765
-  m_Direction: 1
-  m_Center: {x: 2.3283064e-10, y: -0.0076723723, z: -0.000002404442}
+  serializedVersion: 3
+  m_Size: {x: 0.017155103, y: 0.056508765, z: 0.018381786}
+  m_Center: {x: -0.0003268239, y: -0.0076723713, z: 0.0004775244}
 --- !u!114 &8026762736337272225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec4a03f1ecc5d940985a2987a1945bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is2DObject: 0
+  detectRadius: 2

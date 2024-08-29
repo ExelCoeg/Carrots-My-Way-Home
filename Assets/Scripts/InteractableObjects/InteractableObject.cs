@@ -3,16 +3,12 @@ using UnityEngine;
 public abstract class InteractableObject : MonoBehaviour, IInteractable
 {
     Material outline;
-
-    public bool is2DObject;
-    
     MeshRenderer meshRenderer;
     SpriteRenderer spriteRenderer;
-
-    [Header("Interactable Object 2D")]
-    public float detectRadius = 2f;
+    public bool is2DObject;
+    
     public abstract void Interacted(); 
-    private void Awake() {
+    public void Awake() {
         if(TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer)){
             this.meshRenderer = meshRenderer;
             outline = meshRenderer.materials[1];
@@ -36,7 +32,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         }
     }
     public void EnableOutline(){
-        // print("Enabling outline");
+        print("Enabling outline: " + gameObject.name);
         if(!is2DObject){
             outline.SetFloat("_Scale", 1.125f);
         }
@@ -45,37 +41,34 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             spriteRenderer.material = GameManager.instance.outlineMaterial2D;
         }
    }
-    protected virtual void Update() {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        print("test: " + gameObject.name );
-        if(!is2DObject){
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-            if(distance >= 2f){
-                DisableOutline();
-                enabled = false;
-            }
-            else{
-                EnableOutline();
-            }
-        }
-        else{
-            Collider2D obj = Physics2D.OverlapCircle(transform.position, detectRadius, LayerMask.GetMask("Player"));
-            if(obj != null){
-                EnableOutline();
-            }
-            else{
-                DisableOutline();
-                enabled = false;
-            }
-        }
-        
-    }
  
    
    
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
+   
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Player")){
+            EnableOutline();
+            other.GetComponent<Player>().currentInteractableObject = this;
+        }
+    }
+    private void OnTriggerExit(Collider other) {
+        if(other.CompareTag("Player")){
+            DisableOutline();
+            other.GetComponent<Player>().currentInteractableObject = null;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Player")){
+            EnableOutline();
+            other.GetComponent<Player>().currentInteractableObject = this;
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("Player")){
+            DisableOutline();
+            other.GetComponent<Player>().currentInteractableObject = null;
+        }
     }
 }
 

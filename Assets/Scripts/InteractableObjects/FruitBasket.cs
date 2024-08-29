@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class FruitBasket : InteractableObject
 {
-    [SerializeField] private GameObject correctFruit;
-    [SerializeField] private GameObject fruitInput;
-    [SerializeField] private GameObject currentFruit;
+    [SerializeField] private Item correctFruit;
+    [SerializeField] private Item fruitInput;
+    [SerializeField] private SpriteRenderer placeholder;
     public bool correct;
+   
+    public void Update() {
+        fruitInput = UIInventory.instance.itemSlots.Count > 0 ? UIInventory.instance.itemSlots[GameManager.instance.player2D.currentSlot]//
+        .GetComponent<ItemSlot>().item.GetComponent<Item>() : null;
+    }
     public override void Interacted()
     {
-        currentFruit = fruitInput;
-        if(fruitInput.GetComponent<Item>().itemName == correctFruit.GetComponent<Item>().itemName){
-            correct = true;
+        if(fruitInput != null){
+            if(fruitInput.itemName == correctFruit.itemName){
+                placeholder.sprite = correctFruit.GetComponent<SpriteRenderer>().sprite;
+                correct = true;
+                GetComponent<Collider2D>().enabled = false;
+                UIInventory.instance.RemoveItem(UIInventory.instance.itemSlots[GameManager.instance.player2D.currentSlot]);
+            }
+            else{
+                UIManager.instance.ShowMessage("Something doesn't quite feel right...");
+            }
+        }
+        else{
+            UIManager.instance.ShowMessage("I need to pick up a fruit first...");
         }
     }
 }

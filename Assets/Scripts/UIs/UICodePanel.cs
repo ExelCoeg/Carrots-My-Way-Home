@@ -9,7 +9,7 @@ public class UICodePanel : UIBase
     public List<Numbers> numberPadButtons;
 
     public string currentInput = "";
-    private string correctAnswer;
+    [SerializeField] private string correctAnswer;
     public Button closeButton;
     public Button clearButton;
     public Button enterButton;
@@ -25,7 +25,7 @@ public class UICodePanel : UIBase
     }
     private void Start()
     {
-        closeButton.onClick.AddListener(() => Hide());
+        closeButton.onClick.AddListener(() => UIManager.instance.HideUI(UI.CODEPANEL));
         clearButton.onClick.AddListener(() => ClearInput());
         enterButton.onClick.AddListener(() => CheckAnswer());
     }
@@ -58,6 +58,7 @@ public class UICodePanel : UIBase
     {
         currentInput = "";
         numberPadMainText.text = currentInput;
+        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Enter Code";
     }
     public void SetCorrectAnswer(string correctAnswer)
     {

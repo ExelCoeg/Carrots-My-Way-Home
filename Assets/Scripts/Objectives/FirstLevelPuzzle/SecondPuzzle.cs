@@ -7,14 +7,13 @@ public class SecondPuzzle : Objective
     // public List<Carrots2D> carrots2Ds;
     public List<GameObject> carrots;
     public List<FruitBasket> fruitBaskets;
-
+    
     public override void CheckComplete()
     {
         if(complete){
             OnComplete();
         }
     }
-    // Update is called once per frame
     protected override void Update()
     {
         if(Input.GetKeyDown(KeyCode.K)){

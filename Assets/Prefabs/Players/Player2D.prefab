@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8364757612911027911}
   m_Layer: 8
   m_Name: Player2D
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008563101, y: 0.01947932}
+  m_Offset: {x: 0.023249462, y: -0.0072261095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -213,7 +213,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45360714, y: 0.688025}
+  m_Size: {x: 0.23018396, y: 0.6346141}
   m_EdgeRadius: 0
 --- !u!114 &6556185857117950113
 MonoBehaviour:
@@ -228,21 +228,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDebug: 0
-  speed: 10
+  speed: 15
   jumpForce: 5
-  interactRadius: 1
+  interactRadius: 0.5
   groundRadius: 0.5
   groundChecker: {fileID: 602145619451489056}
-  interactChecker: {fileID: 855598169850066928}
-  interactLayer:
-    serializedVersion: 2
-    m_Bits: 128
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   currentInteractableObject: {fileID: 0}
-  interactables: []
-  interactables2D: []
   isWalking: 0
   isJumping: 0
   currentSlot: 0
