@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 1472974929382519037}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 1.7383583, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -230,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 2235895571336040020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 3.35, z: 2.5}
+  m_LocalPosition: {x: -0.24, y: 1.79, z: 2.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 3194526209558791733}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.380001, y: 6.2699995, z: -7.6000004}
+  m_LocalPosition: {x: 3.380001, y: 6.2699995, z: -12.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,7 +428,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 77.41108
+  field of view: 45
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -513,9 +513,10 @@ MonoBehaviour:
   Target: {fileID: 2791016740031444879}
   MouseSensitivity: 2
   camera2DPosition: {fileID: 0}
-  camera3DPosition: {x: 3.38, y: 6.27, z: -5.22}
-  minX: 34.5
-  maxX: 76
+  camera2DOffset: {x: 0, y: 6.86, z: -17.63}
+  camera3DPosition: {x: 3.380001, y: 6.2699995, z: -12.8}
+  minX: 4
+  maxX: 17
 --- !u!1 &3596322515844826697
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +989,7 @@ Transform:
   m_GameObject: {fileID: 7450526610961900034}
   serializedVersion: 2
   m_LocalRotation: {x: -0.016168017, y: 0.70776707, z: -0.002592277, w: 0.7062561}
-  m_LocalPosition: {x: 0.022039032, y: 1.395305, z: -0.15782714}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1119,7 +1120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDebug: 1
-  speed: 6
+  speed: 8
   jumpForce: 5
   interactRadius: 0.5
   groundRadius: 0.5
@@ -1133,6 +1134,7 @@ MonoBehaviour:
     m_Bits: 64
   currentInteractableObject: {fileID: 0}
   interactables: []
+  interactables2D: []
   isWalking: 0
   isJumping: 0
 --- !u!1 &7872749608793385948
@@ -1160,7 +1162,7 @@ Transform:
   m_GameObject: {fileID: 7872749608793385948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.083, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

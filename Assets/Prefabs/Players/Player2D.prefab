@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3662135492424806442}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 0, z: 0}
+  m_LocalPosition: {x: -0.303, y: 0.175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2826723743326896044}
   - component: {fileID: 6897678365959362463}
   - component: {fileID: 6556185857117950113}
+  - component: {fileID: 8364757612911027911}
   m_Layer: 8
   m_Name: Player2D
   m_TagString: Untagged
@@ -201,7 +202,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008563101, y: 0.00040712953}
+  m_Offset: {x: -0.008563101, y: 0.01947932}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -212,7 +213,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45360714, y: 0.7261694}
+  m_Size: {x: 0.45360714, y: 0.688025}
   m_EdgeRadius: 0
 --- !u!114 &6556185857117950113
 MonoBehaviour:
@@ -229,7 +230,7 @@ MonoBehaviour:
   isDebug: 0
   speed: 10
   jumpForce: 5
-  interactRadius: 0.5
+  interactRadius: 1
   groundRadius: 0.5
   groundChecker: {fileID: 602145619451489056}
   interactChecker: {fileID: 855598169850066928}
@@ -241,8 +242,22 @@ MonoBehaviour:
     m_Bits: 64
   currentInteractableObject: {fileID: 0}
   interactables: []
+  interactables2D: []
   isWalking: 0
   isJumping: 0
+  currentSlot: 0
+--- !u!114 &8364757612911027911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902006132688826618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107d7c03622139f42a6ef9158cea37a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8785867179646173180
 GameObject:
   m_ObjectHideFlags: 0

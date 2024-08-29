@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class ObjectiveManager : SingletonMonoBehaviour<ObjectiveManager>
@@ -12,6 +11,9 @@ public class ObjectiveManager : SingletonMonoBehaviour<ObjectiveManager>
         Instantiate(objectives[currentObjectiveIndex],new Vector3(0,1.5f,0),Quaternion.identity,objectiveParent);
     }
     private void Update() {
+        if(currentObjectiveIndex >= objectives.Count){
+            return;
+        }
         currentObjective = UIObjective.instance.objective =  objectives[currentObjectiveIndex];
     }
     public void NextObjective(){
@@ -26,5 +28,8 @@ public class ObjectiveManager : SingletonMonoBehaviour<ObjectiveManager>
 
 public enum ObjectiveType{
     FIND_CARROTS,
-    COMPLETE_PUZZLE
+    COMPLETE_PUZZLE,
+    FIRST_FIRSTPUZZLE,
+    FIRST_SECONDPUZZLE,
+    FIRST_THIRDPUZZLE
 }

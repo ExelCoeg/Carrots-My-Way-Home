@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public enum UI{
     PAUSE,
     GAMEPLAY,
-    INTERACT
+    INTERACT,
+    CODEPANEL,
+    FIRSTHINT,
+    INVENTORY
 }
 public class UIManager : SingletonMonoBehaviour<UIManager>
 {
@@ -15,11 +16,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public UIInteract uiInteractPrefab;
     public UIObjective  uiObjectivePrefab;
     public UIShowMessage uiShowMessagePrefab;
+    public UIInventory uiInventoryPrefab;
     [Header("UI References")]
     public UIPause uiPause;
     public UIInteract uiInteract;
     public UIObjective uiObjective;
     public UIShowMessage uiShowMessage;
+    public UIInventory uiInventory;
     [Header("Canvas Reference")]
     public Transform canvas;
 
@@ -33,6 +36,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         uiInteract = Instantiate(uiInteractPrefab, canvas);
         uiObjective = Instantiate(uiObjectivePrefab,canvas);
         uiShowMessage = Instantiate(uiShowMessagePrefab, canvas);
+        uiInventory = Instantiate(uiInventoryPrefab, canvas);
+        uiInventory.Hide();
         uiInteract.Hide();
         uiPause.Hide();        
     }
@@ -42,10 +47,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         if(currentUI == UI.GAMEPLAY) {
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
+            Cursor.visible = false;
+            if(Input.GetKeyDown(KeyCode.Escape)){
+                GameManager.instance.PauseGame();
+            }
         }
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            GameManager.instance.PauseGame();
+        else if(currentUI == UI.PAUSE || currentUI == UI.CODEPANEL || currentUI == UI.FIRSTHINT){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         canvas = GameObject.Find("Canvas").transform;
     }
@@ -65,6 +74,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 //show interact ui
                 uiInteract.Show();
                 break;
+            case UI.CODEPANEL:
+                UICodePanel.Instance.Show();
+                break;
+            case UI.FIRSTHINT:
+                UIFirstHint.instance.Show();
+                break;
+
         }
 
         currentUI = ui;
@@ -82,15 +98,20 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             case UI.INTERACT:
                 uiInteract.Hide();
                 break;
+            case UI.CODEPANEL:
+                UICodePanel.Instance.Hide();
+                break;
+            case UI.FIRSTHINT:
+            UIFirstHint.instance.Hide();
+            break;
         }
         currentUI = UI.GAMEPLAY;
-        
-
     }
 
     public void ShowMessage(string message){
         uiShowMessage.Show();
         uiShowMessage.SetMessage(message);
     }
+
 
 }

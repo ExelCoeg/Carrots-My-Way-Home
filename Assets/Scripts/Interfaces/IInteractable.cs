@@ -1,6 +1,6 @@
 
 public interface IInteractable
 {
-    void Interactted();
+    void Interacted();
 
 }

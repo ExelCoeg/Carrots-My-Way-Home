@@ -41,6 +41,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         UIManager.instance.ShowUI(UI.PAUSE);
         Time.timeScale = 0;
     }
+    [ContextMenu("Switch Dimension")]
     public void SwitchDimension(){
         // transition between 2D and 3D
         is2D = !is2D;
@@ -49,14 +50,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             player3D.enabled = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
-            objectiveTransform.position = player2D.transform.position;
+            objectiveTransform.SetParent(player2D.transform.parent);
+            objectiveTransform.localPosition = Vector3.zero;
+            player2D.GetComponent<Inventory>().enabled = true;
+            UIInventory.instance.Show();
         }
         else{
             player2D.enabled = false;
             player3D.enabled = true;
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;
+            objectiveTransform.SetParent(null);
             objectiveTransform.position = player3D.transform.position;
+            player2D.GetComponent<Inventory>().enabled = false;
+            UIInventory.instance.Hide();
         }
         
     }

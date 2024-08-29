@@ -4,10 +4,11 @@ public abstract class Objective : MonoBehaviour {
     public ObjectiveType objectiveType;
     public string mainTextString;
     public string description;
+    public bool complete;
     public event Action onComplete;
    
     public abstract void CheckComplete();
-    public void Update() {
+    protected virtual void Update() {
         CheckComplete();
         UIObjective.instance.descriptionText.text = description;
         UIObjective.instance.objectiveMainText.text = mainTextString;

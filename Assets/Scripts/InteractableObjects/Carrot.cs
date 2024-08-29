@@ -4,7 +4,7 @@ public class Carrot : InteractableObject
 {
     FindCarrots objective;
    
-    public override void Interactted()
+    public override void Interacted()
     {   
         objective = GetComponentInParent<FindCarrots>();
         if(ObjectiveManager.instance.currentObjective.objectiveType == ObjectiveType.FIND_CARROTS){
@@ -20,8 +20,8 @@ public class Carrot : InteractableObject
                 // UIManager.instance.ShowMessage("Switching to 2D mode");
             }
            }
-            RaiseOnInteracted();
             objective.currentCarrots++;
+            Destroy(gameObject);
         }
     }
 }

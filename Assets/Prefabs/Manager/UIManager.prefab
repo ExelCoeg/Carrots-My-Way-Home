@@ -52,12 +52,12 @@ MonoBehaviour:
     type: 3}
   uiShowMessagePrefab: {fileID: 2663157741078087348, guid: 697f1133d4a505e429ec74627f0a8b38,
     type: 3}
-  uiFirstHintPrefab: {fileID: 9140639896497234221, guid: c3b91cde33ae1634992a1db891e6e005,
+  uiInventoryPrefab: {fileID: 2001014083559895985, guid: e62c580be43c626448bd46f9bf7247ff,
     type: 3}
   uiPause: {fileID: 0}
   uiInteract: {fileID: 0}
   uiObjective: {fileID: 0}
   uiShowMessage: {fileID: 0}
-  uiFirstHint: {fileID: 0}
+  uiInventory: {fileID: 0}
   canvas: {fileID: 0}
   currentUI: 1

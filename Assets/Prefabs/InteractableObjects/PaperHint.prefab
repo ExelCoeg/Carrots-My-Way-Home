@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7787920463630788748}
   - component: {fileID: 1857075512771397892}
   - component: {fileID: 4398240475368541773}
+  - component: {fileID: 1284974589633567660}
   - component: {fileID: 7432570377832281704}
   m_Layer: 7
   m_Name: PaperHint
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 52.0605, y: 5.8852, z: 0}
-  m_LocalScale: {x: 0.3170936, y: 0.31950715, z: 0.3831021}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1044234927
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c553f7b7cd644424785fb8e5811671ad, type: 3}
+  m_Sprite: {fileID: -1218167285, guid: 65c998c50c368e04aa8f2a9a1ce24ba5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,19 +119,46 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004755497, y: 0.14712846}
+  m_Offset: {x: 0.007650554, y: 0.0060071945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 6.4}
+    oldSize: {x: 0.3515625, y: 0.3125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8111606, y: 5.325139}
+  m_Size: {x: 0.37225497, y: 0.334706}
   m_EdgeRadius: 0
+--- !u!50 &1284974589633567660
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434959353251116391}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!114 &7432570377832281704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is2DObject: 0
   detectRadius: 2
+  hint: 

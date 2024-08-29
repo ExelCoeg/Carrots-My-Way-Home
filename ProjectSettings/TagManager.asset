@@ -44,3 +44,6 @@ TagManager:
   - name: Objects
     uniqueID: 1044234927
     locked: 0
+  - name: Gate
+    uniqueID: 4227270603
+    locked: 0
