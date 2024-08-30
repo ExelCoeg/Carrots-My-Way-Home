@@ -49,4 +49,5 @@ MonoBehaviour:
   objectives:
   - {fileID: 246428751258379313, guid: 51e397e15a1863d48b5d62210d06fb4a, type: 3}
   - {fileID: 2139817562570654429, guid: 2fb0aa6506012704296ecc55c7843f2e, type: 3}
+  - {fileID: 5640328114838667369, guid: 91eac54b018d57747a559da441a288d8, type: 3}
   currentObjective: {fileID: 0}

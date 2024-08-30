@@ -6,6 +6,7 @@ public class FindCarrots : Objective
 
     [Header("Carrot Informations")]
     int carrotsToFind = 5;
+    public BasketFindCarrots basket;
     public int currentCarrots;
     private void Start() {
         mainTextString = "Collect Carrots (" + currentCarrots + "/" + carrotsToFind + ")";
@@ -20,8 +21,10 @@ public class FindCarrots : Objective
 
     public override void CheckComplete()
     {   
-        if(currentCarrots >= carrotsToFind){
+        if(complete){
+            ObjectiveManager.instance.NextObjective();
             OnComplete();
+
         }
     }
     public override void OnEnable(){

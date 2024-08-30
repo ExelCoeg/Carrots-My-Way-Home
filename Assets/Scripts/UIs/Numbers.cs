@@ -22,6 +22,7 @@ public class Numbers : MonoBehaviour
 
     private void OnButtonClick()
     {
+        SoundManager.Instance.PlaySound2D("clickButton");
         UICodePanel.Instance.OnNumberButtonClick(number);
     }
     private void OnEnable() {

@@ -14,6 +14,9 @@ public class UIFirstHint : UIBase
     }
     private void Start() {
         closeButton.onClick.AddListener(() => {
+            SoundManager.Instance.PlaySound2D("clickUI");
+
+
             UIManager.instance.HideUI(UI.FIRSTHINT);
         });
     }

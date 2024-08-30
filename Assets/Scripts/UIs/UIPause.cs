@@ -1,23 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 
 public class UIPause : UIBase
 {
 
     public Button resumeButton;
+    public Button quitButton;
     // Start is called before the first frame update
     void Start()
     {
         resumeButton.onClick.AddListener(()=>{
+            SoundManager.Instance.PlaySound2D("clickUI");
+
             GameManager.instance.ResumeGame();
         });
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        quitButton.onClick.AddListener(()=>{
+            SoundManager.Instance.PlaySound2D("clickUI");
+
+            GameManager.instance.QuitGame();
+        });
     }
 }

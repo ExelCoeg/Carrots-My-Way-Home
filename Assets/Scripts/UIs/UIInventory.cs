@@ -20,7 +20,7 @@ public class UIInventory : UIBase{
         transform.localScale = Vector3.zero;
     }
     private void Update() {
-        if(UIManager.instance.currentUI == UI.QUESTIONS){
+        if(UIManager.instance.currentUI == UI.QUESTIONS || UIManager.instance.currentUI == UI.FRUITBASKETS){
             GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.MiddleCenter; 
             ChangeAnchorPreset(new Vector2(0.5f,1), new Vector2(0.5f,1), new Vector2(0.5f,0.5f));
             StartCoroutine(AnimateCenter());
@@ -60,8 +60,8 @@ public class UIInventory : UIBase{
         transform.DOScale(1.5f,0.25f);
     }
     public IEnumerator AnimateUpperLeft(){
-        yield return rectTransform.DOAnchorPos(Vector3.zero,0.25f).WaitForCompletion();
-        transform.DOScale(1f,0.25f);
+        yield return transform.DOScale(1f,0.25f).WaitForCompletion();
+        rectTransform.DOAnchorPos(Vector3.zero,0.25f);
 
     }
 

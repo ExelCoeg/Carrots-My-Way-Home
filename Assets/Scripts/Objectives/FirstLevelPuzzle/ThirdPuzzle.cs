@@ -36,6 +36,7 @@ public class ThirdPuzzle : Objective
 
     
     public IEnumerator OpenGate(){
+        SoundManager.Instance.PlaySound2D("gateSound");
         yield return reward.transform.DOMoveY(endPos.position.y,1f).WaitForCompletion();
         yield return gate.transform.DOMoveY(gateEndPoint.position.y,1f).WaitForCompletion();
 

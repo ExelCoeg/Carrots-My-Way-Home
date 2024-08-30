@@ -6,6 +6,9 @@ using UnityEngine;
 public class Reward : InteractableObject
 {
     public List<GameObject> carrots;
+    private void Start() {
+        SoundManager.Instance.PlaySound2D("rockSound");
+    }
     public override void Interacted()
     {
         UIInventory.instance.AddItem(carrots[2]);

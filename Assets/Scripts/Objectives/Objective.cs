@@ -24,7 +24,6 @@ public abstract class Objective : MonoBehaviour {
     public void Complete() {
         Debug.Log("Complete method called");
         UIManager.instance.ShowMessage("Objective Complete!");
-        ObjectiveManager.instance.NextObjective();
         // Destroy(gameObject);
     }
 

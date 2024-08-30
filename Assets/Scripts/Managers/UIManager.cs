@@ -9,10 +9,16 @@ public enum UI{
     CODEPANEL,
     FIRSTHINT,
     INVENTORY,
-    QUESTIONS
+    QUESTIONS,
+    FRUITBASKETS,
+    MORAL
 }
-public class UIManager : SingletonMonoBehaviour<UIManager>
+public class UIManager : MonoBehaviour
+
 {
+    public static UIManager instance;
+        
+    
     [Header("UI Prefabs")]
     public UIPause uiPauseprefab;
     public UIInteract uiInteractPrefab;
@@ -30,6 +36,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     [Header("----------------------")]
     public UI currentUI;
+    private void Awake() {
+        if(instance == null){
+            instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +60,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     // Update is called once per frame
     void Update()
     {
+        
         if(currentUI == UI.GAMEPLAY) {
             
             Cursor.lockState = CursorLockMode.Locked;
@@ -55,13 +69,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 GameManager.instance.PauseGame();
             }
         }
-        else if(currentUI == UI.PAUSE || currentUI == UI.CODEPANEL || currentUI == UI.FIRSTHINT || currentUI == UI.QUESTIONS){
+        else if(currentUI == UI.PAUSE || currentUI == UI.CODEPANEL || currentUI == UI.FIRSTHINT || currentUI == UI.QUESTIONS || currentUI == UI.FRUITBASKETS){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         canvas = GameObject.Find("Canvas").transform;
     }
-
+    
     public void ShowUI(UI ui){
         if(currentUI == ui){
             return;
@@ -84,7 +98,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             case UI.QUESTIONS:
                 UIQuestions.instance.Show();
                 break;
-
+            case UI.FRUITBASKETS:
+                UIFruitBaskets.instance.Show();
+                break;
+            case UI.MORAL:
+                UIMoral.instance.Show();
+                break;
+        
         }
 
         currentUI = ui;
@@ -111,6 +131,12 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             case UI.QUESTIONS:
                 UIQuestions.instance.Hide();
                 break;
+            case UI.FRUITBASKETS:
+                UIFruitBaskets.instance.Hide();
+            break;
+            case UI.MORAL:
+                UIMoral.instance.Hide();
+            break;
 
 
         }
@@ -120,6 +146,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public void ShowMessage(string message){
         uiShowMessage.Show();
         uiShowMessage.SetMessage(message);
+    }
+    public void Initialize(){
+
     }
      
 

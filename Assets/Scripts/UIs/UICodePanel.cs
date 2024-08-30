@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 public class UICodePanel : UIBase
 {
     public TMP_InputField numberPadMainText;
@@ -23,17 +24,36 @@ public class UICodePanel : UIBase
             Destroy(gameObject);
         }
     }
+    public override void Show()
+    {
+        base.Show();
+        transform.DOScale(1, 0.5f).SetEase(Ease.OutBack);
+    }
+    public override void Hide()
+    {
+        transform.DOScale(0, 0.5f).SetEase(Ease.OutBack);
+        
+        base.Hide();
+    }
     private void Start()
     {
-        closeButton.onClick.AddListener(() => UIManager.instance.HideUI(UI.CODEPANEL));
-        clearButton.onClick.AddListener(() => ClearInput());
-        enterButton.onClick.AddListener(() => CheckAnswer());
+        closeButton.onClick.AddListener(() => {
+            SoundManager.Instance.PlaySound2D("clickUI");
+
+            UIManager.instance.HideUI(UI.CODEPANEL);
+        });
+        clearButton.onClick.AddListener(() => {
+            SoundManager.Instance.PlaySound2D("clickButton");
+            ClearInput();
+        });
+        enterButton.onClick.AddListener(() => {
+            SoundManager.Instance.PlaySound2D("clickButton");
+            CheckAnswer();
+        });
     }
     public void CheckAnswer()
     {
         if(currentInput == correctAnswer){//ineffective
-            FirstLevelPuzzle firstLevelPuzzle = FindObjectOfType<FirstLevelPuzzle>();
-            firstLevelPuzzle.puzzles[0].complete = true;
             StartCoroutine(Correct());
         }
         else{
@@ -53,9 +73,14 @@ public class UICodePanel : UIBase
         ClearInput();
         numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Correct.";
 
-        yield return new WaitForSeconds(1);
-        
+        yield return new WaitForSeconds(1);        
+
+        FirstLevelPuzzle firstLevelPuzzle = FindObjectOfType<FirstLevelPuzzle>();
+        firstLevelPuzzle.puzzles[0].complete = true;
+
         UIManager.instance.HideUI(UI.CODEPANEL);
+
+
     }
     public void ClearInput()
     {
