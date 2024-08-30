@@ -53,7 +53,7 @@ MonoBehaviour:
   objectiveType: 0
   mainTextString: Collect Carrots (0/5)
   description: Find carrots nearby!
-  currentCarrots: 0
+  currentCarrots: 4
 --- !u!1001 &1563378483808673452
 PrefabInstance:
   m_ObjectHideFlags: 0

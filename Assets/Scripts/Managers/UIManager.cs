@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public enum UI{
@@ -47,13 +48,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     void Update()
     {
         if(currentUI == UI.GAMEPLAY) {
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             if(Input.GetKeyDown(KeyCode.Escape)){
                 GameManager.instance.PauseGame();
             }
         }
-        else if(currentUI == UI.PAUSE || currentUI == UI.CODEPANEL || currentUI == UI.FIRSTHINT){
+        else if(currentUI == UI.PAUSE || currentUI == UI.CODEPANEL || currentUI == UI.FIRSTHINT || currentUI == UI.QUESTIONS){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -67,12 +69,10 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         HideUI(currentUI);
         switch(ui){
             case UI.PAUSE:
-                //show pause ui
                 uiPause.Show();
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case UI.INTERACT:
-                //show interact ui
                 uiInteract.Show();
                 break;
             case UI.CODEPANEL:
@@ -94,9 +94,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         if(currentUI != ui){
             return;
         }
+        
         switch(ui){
             case UI.PAUSE:
-                //hide pause ui
                 uiPause.Hide();
                 break;
             case UI.INTERACT:
@@ -121,6 +121,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         uiShowMessage.Show();
         uiShowMessage.SetMessage(message);
     }
-
+     
 
 }

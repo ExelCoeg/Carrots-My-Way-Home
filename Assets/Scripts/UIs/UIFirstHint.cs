@@ -1,12 +1,11 @@
 
-using UnityEngine;
 using UnityEngine.UI;
 
 public class UIFirstHint : UIBase
 {
-    public Button closeButton;
     public static UIFirstHint instance;
-    private void Awake() {
+    public Button closeButton;
+    public override void Awake() {
         if(instance == null){
             instance = this;
         } else {

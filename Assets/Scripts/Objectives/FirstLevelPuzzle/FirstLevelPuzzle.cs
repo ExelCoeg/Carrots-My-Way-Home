@@ -18,6 +18,8 @@ public class FirstLevelPuzzle : Objective
 
     [Header("Puzzles")]
     public List<Objective> puzzles;
+
+
     public int currentPuzzleIndex = 0;
     private void Start() {
         uiFirstHint = Instantiate(uiFirstHintPrefab,UIManager.instance.canvas);
@@ -29,10 +31,19 @@ public class FirstLevelPuzzle : Objective
 }
     protected override void Update() {
         base.Update();
-        if(puzzles[currentPuzzleIndex].complete){
-            currentPuzzleIndex++;
-            mainTextString = puzzles[currentPuzzleIndex].mainTextString;
-            description = puzzles[currentPuzzleIndex].description;
+        UIObjective.instance.descriptionText.text = puzzles[currentPuzzleIndex].description;
+            UIObjective.instance.objectiveMainText.text = puzzles[currentPuzzleIndex].mainTextString;
+        if(currentPuzzleIndex >= 2){
+            foreach(var questions in puzzles[currentPuzzleIndex].GetComponent<ThirdPuzzle>().questionsList){
+                if(questions.available == false){
+                    questions.available = true;
+                }
+            }
+        }
+        else{
+            if(puzzles[currentPuzzleIndex].complete){
+                currentPuzzleIndex++;
+            }
         }
         complete  = puzzles[0].complete && puzzles[1].complete && puzzles[2].complete;
     }
@@ -42,5 +53,7 @@ public class FirstLevelPuzzle : Objective
             OnComplete();
         }
     }
+
+
     
 }

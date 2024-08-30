@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 28020657a32f2b740a29089682199dd3
+guid: dc0fd75308dd4c94f8016861696852ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,22 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RewardGold_3
+      name: Ground_0
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 64
-        width: 40
-        height: 137
+        x: 0
+        y: 0
+        width: 1536
+        height: 145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ded426b63904f1488e794d2090bfb18
-      internalID: 1633114091
+      spriteID: 313a327f05a41e94b9fc74b24eab64b3
+      internalID: -2082623868
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RewardGold_0: -2112511010
-      RewardGold_1: -1223411636
-      RewardGold_2: -1097350014
-      RewardGold_3: 1633114091
+      Ground_0: -2082623868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

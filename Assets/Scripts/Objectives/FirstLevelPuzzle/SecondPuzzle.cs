@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SecondPuzzle : Objective
 {
-    // public List<Carrots2D> carrots2Ds;
     public GameObject reward;
     public List<GameObject> carrots;
     public List<FruitBasket> fruitBaskets;
@@ -19,12 +18,22 @@ public class SecondPuzzle : Objective
     }
     protected override void Update()
     {
+        base.Update();
         complete = fruitBaskets[0].correct && fruitBaskets[1].correct && //
         fruitBaskets[2].correct && fruitBaskets[3].correct;
     }
-    public void SpawnReward(){
-        GameObject rewardLeaf = Instantiate(reward,transform.position,Quaternion.identity,transform);
-        rewardLeaf.GetComponent<Reward>().Animate(transform);
+    public override void OnEnable(){
+        base.OnEnable();
+        onComplete += SpawnRewardLeaf;
+    }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        onComplete -= SpawnRewardLeaf;
+    }
+    public void SpawnRewardLeaf(){
+        GameObject rewardLeaf = Instantiate(reward,startRewardPosition.position,Quaternion.identity,transform);
+        rewardLeaf.GetComponent<Reward>().Animate(endRewardPosition);
         enabled = false;
     }
 }

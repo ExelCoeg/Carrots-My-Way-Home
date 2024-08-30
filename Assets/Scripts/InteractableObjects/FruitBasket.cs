@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class FruitBasket : InteractableObject
 {
+    public bool correct;
     [SerializeField] private Item correctFruit;
     [SerializeField] private Item fruitInput;
     [SerializeField] private SpriteRenderer placeholder;
-    public bool correct;
    
     public void Update() {
         fruitInput = UIInventory.instance.itemSlots.Count > 0 ? UIInventory.instance.itemSlots[GameManager.instance.player2D.currentSlot]//

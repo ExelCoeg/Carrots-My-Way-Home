@@ -12,9 +12,11 @@ public class Reward : InteractableObject
         UIInventory.instance.AddItem(carrots[1]);
         UIInventory.instance.AddItem(carrots[3]);
         UIInventory.instance.AddItem(carrots[0]);
+        GetComponent<Collider2D>().enabled = false;
+        enabled = false;
     }
 
-
+    
     public void Animate(Transform endPos){
         transform.DOMoveY(endPos.position.y,1f);
     }

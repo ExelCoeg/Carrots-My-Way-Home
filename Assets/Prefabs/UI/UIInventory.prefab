@@ -84,4 +84,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemSlot: {fileID: 1144174048808348708, guid: 1afbe2c7f8c95c349b7dd18cdf2243f9,
     type: 3}
-  items: []
+  itemSlots: []

@@ -15,7 +15,7 @@ public class UICodePanel : UIBase
     public Button enterButton;
     public static UICodePanel Instance;
     
-    private void Awake() {
+    public override void Awake() {
         
         if(Instance == null){
             Instance = this;
@@ -50,15 +50,18 @@ public class UICodePanel : UIBase
         numberPadMainText.text = currentInput;
     }
     public IEnumerator Correct(){
-        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Correct!";
+        ClearInput();
+        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Correct.";
+
         yield return new WaitForSeconds(1);
-        Hide();
+        
+        UIManager.instance.HideUI(UI.CODEPANEL);
     }
     public void ClearInput()
     {
         currentInput = "";
         numberPadMainText.text = currentInput;
-        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Enter Code";
+        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Enter Code...";
     }
     public void SetCorrectAnswer(string correctAnswer)
     {

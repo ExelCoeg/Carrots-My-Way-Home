@@ -7,12 +7,11 @@ public class UIObjective : UIBase
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI objectiveMainText;
     public Objective objective;
-    private void Awake() {
+    public override void Awake() {
         if(instance == null){
             instance = this;
-        }
-        else{
-            Destroy(this);
+        } else {
+            Destroy(gameObject);
         }
     }
 }
