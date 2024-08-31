@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         PlayGame();
     }
     public void PlayGame(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
         MusicManager.Instance.PlayMusic("bg");
     }
     public void ResumeGame(){
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
     public void MainMenu(){
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
     }
     [ContextMenu("Switch Dimension")]
     public void SwitchDimension(){

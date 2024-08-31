@@ -41,12 +41,12 @@ public class MusicManager : MonoBehaviour
 	IEnumerator AnimateMusicCrossfade(AudioClip nextTrack, float fadeDuration = 0.5f)
 	{
 		float percent = 0;
-		while (percent < 1)
-		{
-			percent += Time.deltaTime * 1 / fadeDuration;
-			musicSource.volume = Mathf.Lerp(1f, 0, percent);
-			yield return null;
-		}
+		// while (percent < 1)
+		// {
+		// 	percent += Time.deltaTime * 1 / fadeDuration;
+		// 	musicSource.volume = Mathf.Lerp(1f, 0, percent);
+		// 	yield return null;
+		// }
 
 		musicSource.clip = nextTrack;
 		musicSource.Play();
