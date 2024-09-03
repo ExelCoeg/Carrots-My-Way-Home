@@ -33,11 +33,15 @@ public class FruitBasket : InteractableObject
             correct = true;
             GetComponent<Collider2D>().enabled = false;
             UIInventory.instance.RemoveItem(UIInventory.instance.itemSlots[GameManager.instance.player2D.currentSlot]);
+            
+            
             UIManager.instance.ShowMessage("This looks pretty right...");
         }
         else{
             UIManager.instance.ShowMessage("Something doesn't quite feel right...");
+            SoundManager.Instance.PlaySound2D("wrong");
+            StartCoroutine(WrongAnswerDelay());
         }
-        UIManager.instance.HideUI(UI.FRUITBASKETS);
+        StartCoroutine(UIFruitBaskets.instance.CloseAnimation());
     }
 }

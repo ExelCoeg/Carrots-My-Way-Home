@@ -141,10 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d62dd8ae3cfe6489ee51e3a6080429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebug: 0
   complete: 0
   objectiveType: 2
   mainTextString: Complete the first puzzle!
-  description: Find hints
+  description: Identify the first hint to complete this puzzle.
   correctAnswer: 3259
   reward: {fileID: 4485539810610758754, guid: fa01663b515c4134c890c246fb56d1dc, type: 3}
   startRewardPosition: {fileID: 7056656701079336579}
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb18df018873ea45a32c5eb4e6a641d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebug: 0
   complete: 0
   objectiveType: 4
   mainTextString: Complete the third puzzle.
@@ -327,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce013f11e31e7f248998a4cfde654f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebug: 0
   complete: 0
   objectiveType: 1
   mainTextString: Complete the first puzzle!
@@ -402,6 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059103f9eb935294a8376dbe53c3dd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebug: 0
   complete: 0
   objectiveType: 3
   mainTextString: Complete the second puzzle!

@@ -1,5 +1,5 @@
+using Unity.VectorGraphics;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public enum UI{
@@ -11,7 +11,10 @@ public enum UI{
     INVENTORY,
     QUESTIONS,
     FRUITBASKETS,
-    MORAL
+    MORAL,
+    SHOWMESSAGE,
+    OBJECTIVE,
+    TRANSITION
 }
 public class UIManager : MonoBehaviour
 
@@ -33,6 +36,9 @@ public class UIManager : MonoBehaviour
     public UIInventory uiInventory;
     [Header("Canvas Reference")]
     public Transform canvas;
+    [Header("Transition Image")]
+    public SVGImage uiTransitionImagePrefab;
+    public SVGImage uiTransitionImage;
 
     [Header("----------------------")]
     public UI currentUI;
@@ -52,6 +58,7 @@ public class UIManager : MonoBehaviour
         uiObjective = Instantiate(uiObjectivePrefab,canvas);
         uiShowMessage = Instantiate(uiShowMessagePrefab, canvas);
         uiInventory = Instantiate(uiInventoryPrefab, canvas);
+        uiTransitionImage = Instantiate(uiTransitionImagePrefab, canvas.transform);
         uiInventory.Hide();
         uiInteract.Hide();
         uiPause.Hide();        
@@ -60,18 +67,19 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if(currentUI == UI.GAMEPLAY) {
-            
+            GameManager.instance.isInteracting = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            if(Input.GetKeyDown(KeyCode.Escape)){
+            if(Input.GetKeyDown(KeyCode.Escape) && !GameManager.instance.isTransitioning){
                 GameManager.instance.PauseGame();
             }
         }
         else if(currentUI == UI.PAUSE || currentUI == UI.CODEPANEL || currentUI == UI.FIRSTHINT || currentUI == UI.QUESTIONS || currentUI == UI.FRUITBASKETS){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            GameManager.instance.isInteracting = true;
         }
         canvas = GameObject.Find("Canvas").transform;
     }
@@ -104,6 +112,15 @@ public class UIManager : MonoBehaviour
             case UI.MORAL:
                 UIMoral.instance.Show();
                 break;
+            case UI.OBJECTIVE:
+                uiObjective.Show();
+                break;
+            case UI.SHOWMESSAGE:
+                uiShowMessage.Show();
+                break;
+            case UI.TRANSITION:
+                uiTransitionImage.gameObject.SetActive(true);
+                break;
         
         }
 
@@ -127,16 +144,25 @@ public class UIManager : MonoBehaviour
                 break;
             case UI.FIRSTHINT:
                 UIFirstHint.instance.Hide();
-            break;
+                break;
             case UI.QUESTIONS:
                 UIQuestions.instance.Hide();
                 break;
             case UI.FRUITBASKETS:
                 UIFruitBaskets.instance.Hide();
-            break;
+                break;
             case UI.MORAL:
                 UIMoral.instance.Hide();
-            break;
+                break;
+            case UI.OBJECTIVE:
+                uiObjective.Hide();
+                break;
+            case UI.SHOWMESSAGE:
+                uiShowMessage.Hide();
+                break;
+            case UI.TRANSITION:
+                uiTransitionImage.gameObject.SetActive(false);
+                break;
 
 
         }

@@ -27,10 +27,10 @@ public class UIBase : MonoBehaviour
 
     }
 
-    public IEnumerator AnimatePopUPShow(){
-        yield return transform.DOScale(1,0.25f).WaitForCompletion();
+    public  IEnumerator AnimateShow(){
+        yield return transform.DOScale(1,0.5f).SetEase(Ease.OutBack).WaitForCompletion();
     }
-    public IEnumerator AnimatePopUPHide(){
-        yield return transform.DOScale(0,0.25f).WaitForCompletion();
+    public IEnumerator AnimateHide(){
+        yield return transform.DOScale(0,0.5f).WaitForCompletion();
     }
 }

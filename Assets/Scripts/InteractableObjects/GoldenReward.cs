@@ -16,6 +16,6 @@ public class GoldenReward :InteractableObject
         ObjectiveManager.instance.NextObjective();
     }
     public void Animate(Transform endPos){
-        transform.DOMoveY(endPos.position.y,1f);
+        transform.DOMoveY(endPos.position.y,2f);
     }
 }

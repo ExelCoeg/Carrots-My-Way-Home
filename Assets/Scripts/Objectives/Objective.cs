@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 
 public abstract class Objective : MonoBehaviour {
+    public bool isDebug;
     public bool complete;
     [Header("Objective Type")]
     public ObjectiveType objectiveType;
@@ -17,23 +18,23 @@ public abstract class Objective : MonoBehaviour {
     }
 
     public void OnComplete() {
-        Debug.Log("OnComplete method called");
+        if(isDebug) Debug.Log("OnComplete method called");
         onComplete?.Invoke();
     }
 
     public void Complete() {
-        Debug.Log("Complete method called");
+        if(isDebug)Debug.Log("Complete method called");
         UIManager.instance.ShowMessage("Objective Complete!");
         // Destroy(gameObject);
     }
 
     public virtual void OnEnable() {
-        Debug.Log("Objective OnEnable called");
+        if(isDebug)Debug.Log("Objective OnEnable called");
         onComplete += Complete;
     }
 
     public virtual void OnDisable() {
-        Debug.Log("Objective OnDisable called");
+        if(isDebug)Debug.Log("Objective OnDisable called");
         onComplete -= Complete;
     }
 

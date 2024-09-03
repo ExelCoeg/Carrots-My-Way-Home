@@ -1918,23 +1918,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7969880912016496663, guid: 46c6d859e097e284e822aa7a15573161,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969880912016496663, guid: 46c6d859e097e284e822aa7a15573161,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969880912016496663, guid: 46c6d859e097e284e822aa7a15573161,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2397227118481496844, guid: 46c6d859e097e284e822aa7a15573161, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c6d859e097e284e822aa7a15573161, type: 3}
@@ -6629,6 +6615,12 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 120742996}
+    - target: {fileID: 4612081923216747087, guid: 6c20a9b769d87584593ed30fc610df69,
+        type: 3}
+      propertyPath: uiTransitionImagePrefab
+      value: 
+      objectReference: {fileID: 6963719296285610743, guid: 50740b626a169c94b9b53377d63fc868,
+        type: 3}
     - target: {fileID: 9099087534670824324, guid: 6c20a9b769d87584593ed30fc610df69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7314,11 +7306,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 102712224150808156, guid: c41bac8fb3fddae46bf34844eb26f41c,
         type: 3}
-      propertyPath: is2D
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 102712224150808156, guid: c41bac8fb3fddae46bf34844eb26f41c,
-        type: 3}
       propertyPath: player2D
       value: 
       objectReference: {fileID: 3950863772559328794}
@@ -7327,6 +7314,11 @@ PrefabInstance:
       propertyPath: player3D
       value: 
       objectReference: {fileID: 8207921231130402733}
+    - target: {fileID: 102712224150808156, guid: c41bac8fb3fddae46bf34844eb26f41c,
+        type: 3}
+      propertyPath: transitionImage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 102712224150808156, guid: c41bac8fb3fddae46bf34844eb26f41c,
         type: 3}
       propertyPath: playerSpawnPoint
@@ -7408,23 +7400,23 @@ PrefabInstance:
     - target: {fileID: 5570673210089076028, guid: a167b6060eab06a4cad90d1140d99e65,
         type: 3}
       propertyPath: soundEffects.Array.size
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5570673210089076028, guid: a167b6060eab06a4cad90d1140d99e65,
         type: 3}
-      propertyPath: soundEffects.Array.data[7].groupID
-      value: clickUI
+      propertyPath: soundEffects.Array.data[10].groupID
+      value: paper
       objectReference: {fileID: 0}
     - target: {fileID: 5570673210089076028, guid: a167b6060eab06a4cad90d1140d99e65,
         type: 3}
-      propertyPath: soundEffects.Array.data[7].clips.Array.size
+      propertyPath: soundEffects.Array.data[10].clips.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5570673210089076028, guid: a167b6060eab06a4cad90d1140d99e65,
         type: 3}
-      propertyPath: soundEffects.Array.data[7].clips.Array.data[0]
+      propertyPath: soundEffects.Array.data[10].clips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 8e1bf3a3e82dfc84b8b2cf6d56a88d51, type: 3}
+      objectReference: {fileID: 8300000, guid: a58c1ed7f15285c4595af2fa2f79c0cb, type: 3}
     - target: {fileID: 6990288349383159058, guid: a167b6060eab06a4cad90d1140d99e65,
         type: 3}
       propertyPath: m_Name

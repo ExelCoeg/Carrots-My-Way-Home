@@ -27,20 +27,14 @@ public class UICodePanel : UIBase
     public override void Show()
     {
         base.Show();
-        transform.DOScale(1, 0.5f).SetEase(Ease.OutBack);
-    }
-    public override void Hide()
-    {
-        transform.DOScale(0, 0.5f).SetEase(Ease.OutBack);
-        
-        base.Hide();
+        StartCoroutine(AnimateShow());
     }
     private void Start()
     {
         closeButton.onClick.AddListener(() => {
             SoundManager.Instance.PlaySound2D("clickUI");
-
-            UIManager.instance.HideUI(UI.CODEPANEL);
+            ClearInput();
+            StartCoroutine(Close());
         });
         clearButton.onClick.AddListener(() => {
             SoundManager.Instance.PlaySound2D("clickButton");
@@ -57,8 +51,8 @@ public class UICodePanel : UIBase
             StartCoroutine(Correct());
         }
         else{
-            ClearInput();
-            numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Incorrect.";
+            StartCoroutine(Wrong());
+            
         }
     }
     public void OnNumberButtonClick(int number)
@@ -69,19 +63,6 @@ public class UICodePanel : UIBase
         currentInput += number.ToString();
         numberPadMainText.text = currentInput;
     }
-    public IEnumerator Correct(){
-        ClearInput();
-        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Correct.";
-
-        yield return new WaitForSeconds(1);        
-
-        FirstLevelPuzzle firstLevelPuzzle = FindObjectOfType<FirstLevelPuzzle>();
-        firstLevelPuzzle.puzzles[0].complete = true;
-
-        UIManager.instance.HideUI(UI.CODEPANEL);
-
-
-    }
     public void ClearInput()
     {
         currentInput = "";
@@ -91,5 +72,35 @@ public class UICodePanel : UIBase
     public void SetCorrectAnswer(string correctAnswer)
     {
         this.correctAnswer = correctAnswer;
+    }
+
+    //--------------------------ANIMATION SEQUENCES---------------------------------
+    public IEnumerator Correct(){
+        SoundManager.Instance.PlaySound2D("correct");
+        ClearInput();
+        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Correct.";
+        yield return numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().DOColor(Color.green,0.1f).WaitForCompletion();
+        yield return numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().DOColor(Color.white,0.1f).WaitForCompletion(); 
+
+        yield return new WaitForSeconds(1f);
+
+
+        FirstLevelPuzzle firstLevelPuzzle = FindObjectOfType<FirstLevelPuzzle>();
+        firstLevelPuzzle.puzzles[0].complete = true;
+
+        yield return StartCoroutine(AnimateHide());
+        UIManager.instance.HideUI(UI.CODEPANEL);
+    }
+    public IEnumerator Wrong(){
+        ClearInput();
+        SoundManager.Instance.PlaySound2D("wrong");
+        numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().text = "Incorrect.";
+        yield return numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().DOColor(Color.red,0.1f).WaitForCompletion();
+        yield return numberPadMainText.placeholder.GetComponent<TextMeshProUGUI>().DOColor(Color.white,0.1f).WaitForCompletion();
+        
+    }
+    public IEnumerator Close(){
+        yield return StartCoroutine(AnimateHide());
+        UIManager.instance.HideUI(UI.CODEPANEL);
     }
 }

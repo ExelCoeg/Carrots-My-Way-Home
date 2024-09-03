@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstLevelPuzzle : Objective
 {
     // public List<InteractableObject> interactableObjects;
+  
     public TMP_InputField inputField;
     
     [Header("UI Prefabs")]
@@ -41,9 +42,9 @@ public class FirstLevelPuzzle : Objective
         base.Update();
         UIObjective.instance.descriptionText.text = puzzles[currentPuzzleIndex].description;
         UIObjective.instance.objectiveMainText.text = puzzles[currentPuzzleIndex].mainTextString;
-        int randint = Random.Range(1,500);
+        int randint = Random.Range(1,1000);
         if(randint == 1){
-            print("playing ambience" + randint);
+    
             SoundManager.Instance.PlaySound2D("caveAmbience");
         }
         if(currentPuzzleIndex >= 2){
@@ -55,6 +56,7 @@ public class FirstLevelPuzzle : Objective
         }
         else{
             if(puzzles[currentPuzzleIndex].complete){
+                SoundManager.Instance.PlaySound2D("correct");
                 currentPuzzleIndex++;
             }
         }

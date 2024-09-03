@@ -14,6 +14,7 @@ public class PaperHint : InteractableObject
     }
     public override void Interacted()
     {
+        SoundManager.Instance.PlaySound2D("paper");
         UIManager.instance.ShowUI(UI.FIRSTHINT);
     }
   

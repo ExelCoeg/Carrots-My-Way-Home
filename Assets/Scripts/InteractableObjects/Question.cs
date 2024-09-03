@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class Question : InteractableObject
 {
     
@@ -36,12 +36,16 @@ public class Question : InteractableObject
             GetComponent<Collider2D>().enabled = false;
             UIInventory.instance.RemoveItem(UIInventory.instance.itemSlots[GameManager.instance.player2D.currentSlot]);
             UIManager.instance.ShowMessage("This feels right...");
+            StartCoroutine(WrongAnswerDelay());
         }
         else{
             UIManager.instance.ShowMessage("Okay.. This seems to be hard...");
+            SoundManager.Instance.PlaySound2D("wrong");
+            StartCoroutine(WrongAnswerDelay());
         }
-        UIManager.instance.HideUI(UI.QUESTIONS);
+        StartCoroutine(UIQuestions.instance.CloseAnimation());
             
         
     }
+    
 }

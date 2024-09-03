@@ -65,7 +65,16 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 39905d953db537741ac6aea449bde342, type: 3}
   - groupID: gateSound
     clips:
-    - {fileID: 8300000, guid: 1491b68cdbd7e7f49b60be632db93677, type: 3}
+    - {fileID: 8300000, guid: 6d06d4e98d7240c48bf80f570bcbad4b, type: 3}
+  - groupID: clickUI
+    clips:
+    - {fileID: 8300000, guid: 8e1bf3a3e82dfc84b8b2cf6d56a88d51, type: 3}
+  - groupID: correct
+    clips:
+    - {fileID: 8300000, guid: 96629be6872c9dc4f842deab21fdba76, type: 3}
+  - groupID: wrong
+    clips:
+    - {fileID: 8300000, guid: 9e0f6eab55fb9a342bfd71d895508357, type: 3}
 --- !u!1 &5268727620846961746
 GameObject:
   m_ObjectHideFlags: 0

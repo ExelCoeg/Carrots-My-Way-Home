@@ -54,7 +54,11 @@ public class Player : MonoBehaviour
             // Debug.Log("isGrounded: " + isGrounded());
             // print("isWalking: " + isWalking);  
         }
-        PlayerMove();
+        if(!GameManager.instance.isInteracting){
+            PlayerMove();
+        }
+        if(GameManager.instance.is2D) CycleInventorySlot();
+
         if(currentInteractableObject != null){
             UIInteract.instance.Show();
             if(Input.GetKeyDown(KeyCode.F)){
@@ -72,7 +76,6 @@ public class Player : MonoBehaviour
         float z = !GameManager.instance.is2D ? Input.GetAxis("Vertical") : 0;
         move = transform.right * x + transform.forward * z;
         if(GameManager.instance.is2D){
-            CycleInventorySlot();
             
             isWalking = x != 0;
             if(x<0){

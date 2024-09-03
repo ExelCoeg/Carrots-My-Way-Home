@@ -16,29 +16,9 @@ public class UIInventory : UIBase{
         }
     
     }
-    private void Start() {
-        transform.localScale = Vector3.zero;
-    }
-    private void Update() {
-        if(UIManager.instance.currentUI == UI.QUESTIONS || UIManager.instance.currentUI == UI.FRUITBASKETS){
-            GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.MiddleCenter; 
-            ChangeAnchorPreset(new Vector2(0.5f,1), new Vector2(0.5f,1), new Vector2(0.5f,0.5f));
-            StartCoroutine(AnimateCenter());
-        }
-        else{
-            ChangeAnchorPreset(new Vector2(0,1), new Vector2(0,1),new Vector2(0,1));
-            GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperLeft;
-            StartCoroutine(AnimateUpperLeft());
-
-        }
-    }
-    [ContextMenu("Show Inventory")]
-    public override void Show()
-    {
-        base.Show();
-    }
-
-
+    // private void Start() {
+    //     transform.localScale = Vector3.zero;
+    // }
     public void AddItem(GameObject item){
         GameObject itemSlotClone = Instantiate(ItemSlot,transform);
         itemSlotClone.GetComponent<ItemSlot>().item = item;
@@ -55,14 +35,32 @@ public class UIInventory : UIBase{
         }
         itemSlots.Clear();
     }
+
+    [ContextMenu("Animate Center")]
+    public void AnimateInventoryToCenter(){
+        StartCoroutine(AnimateCenter());
+    }
+    [ContextMenu("Animate UpperLeft")]
+    public void AnimateInventoryToUpperLeft(){
+        StartCoroutine(AnimateUpperLeft());
+    }
+    
     public IEnumerator AnimateCenter(){
+        print("Animating to center");
+        GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.MiddleCenter; 
+        ChangeAnchorPreset(new Vector2(0.5f,1), new Vector2(0.5f,1), new Vector2(0.5f,0.5f));
+        rectTransform.anchoredPosition = new Vector2(0,75f);
         yield return rectTransform.DOAnchorPos(new Vector3(0,-75f),0.25f).WaitForCompletion();
-        transform.DOScale(1.5f,0.25f);
+        yield return transform.DOScale(1.5f,0.5f).WaitForCompletion();
     }
     public IEnumerator AnimateUpperLeft(){
+        print("Animating to UpperLeft");
         yield return transform.DOScale(1f,0.25f).WaitForCompletion();
-        rectTransform.DOAnchorPos(Vector3.zero,0.25f);
-
+        yield return rectTransform.DOAnchorPos(new Vector2(0,75f),0.5f).WaitForCompletion();
+        GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperLeft;
+        ChangeAnchorPreset(new Vector2(0,1), new Vector2(0,1),new Vector2(0,1));
+        rectTransform.anchoredPosition = new Vector2(-400f,0f);
+        yield return rectTransform.DOAnchorPos(Vector2.zero,0.5f).WaitForCompletion();
     }
 
 }

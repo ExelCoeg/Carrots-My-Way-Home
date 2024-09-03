@@ -1,8 +1,8 @@
-using System.Collections;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour 
 {
+    public bool isDebug = false;
     public static SoundManager Instance;
 
     [SerializeField]
@@ -39,7 +39,9 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound2D(string soundName)
     {
-        print("playing audio");
+        if(isDebug){
+            print("playing " + soundName + "SFX Audio");
+        }
         sfx2DSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
     }
     public void PauseSound2D(){

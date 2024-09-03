@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine.UI;
 
 public class UIFirstHint : UIBase
@@ -12,13 +13,24 @@ public class UIFirstHint : UIBase
             Destroy(gameObject);
         }
     }
+
+    public override void Show()
+    {
+        base.Show();
+        StartCoroutine(AnimateShow());
+    }
+
     private void Start() {
         closeButton.onClick.AddListener(() => {
             SoundManager.Instance.PlaySound2D("clickUI");
-
-
-            UIManager.instance.HideUI(UI.FIRSTHINT);
+            StartCoroutine(Close());
         });
+    }
+
+    public IEnumerator Close(){
+        yield return StartCoroutine(AnimateHide());
+
+        UIManager.instance.HideUI(UI.FIRSTHINT);
     }
 
 }

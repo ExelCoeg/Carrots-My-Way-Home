@@ -138,7 +138,7 @@ MonoBehaviour:
   mainTextString: Collect Carrots (0/5)
   description: Find carrots nearby!
   basket: {fileID: 3855826577308504021}
-  currentCarrots: 0
+  currentCarrots: 4
 --- !u!1 &3764334227746408187
 GameObject:
   m_ObjectHideFlags: 0
